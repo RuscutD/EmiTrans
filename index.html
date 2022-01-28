@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Two+Tone" rel="stylesheet">
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     <!-- Vue Js -->
+     <script src="../js/vue.js"></script>
+     <!-- Vue Ressource -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.6.1/vue-resource.js"></script>
+    <title>Emi Trans</title>
+</head>
+<body>
+    <div id="main">
+        <nav>
+            <div class="nav">
+                <a href="#" class="brand-logo center">Emi Trans</a>
+                <a href="#" data-target="slide-out" class="sidenav-trigger left show-on-large">
+                    <i class="material-icons">menu</i>
+                </a>
+            </div>
+          </nav> 
+            <ul id="slide-out" class="sidenav">
+                <li>
+                    <div class="user-view">
+                        <a href="#user"><img class="circle animated rotateIn" src="img/profilePicture-min.jpeg"></a>
+                        <a href="#name"><span class="black-text name">John Doe</span></a>
+                        <a href="#email"><span class="black-text email">jdandturk@gmail.com</span></a>
+                    </div>
+                </li>
+                <li v-for="link in links">
+                    <a href="javascript:;" :id="link.id" class="waves-effect links animated fadeInLeft">
+                        <span class="black-text">{{ link.title }}</span>
+                    </a>
+                </li>
+                <span><a href="javascript:;" class="sidenav-close"></a></span>
+            </ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems, {});
+        });
+
+        var app = new Vue({
+            el : '#main',
+            data : 
+            {
+                links : [
+                    {title : "EmiTrans", id : "linkone"},
+                    {title : "Price List", id : "linktwo"},
+                    {title : "Why us ?", id : "linkthree"},
+                    {title : "Contact Us", id : "linkfour"},
+                ]
+            }
+        })
+    </script>
+</body>
+</html>
